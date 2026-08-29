@@ -1,9 +1,9 @@
 name: Sync Leetcode
 
 on:
-  workflow_dispatch:     # 支援手動觸發（打包舊題）
+  workflow_dispatch:     # 支援手動觸發
   schedule:
-    - cron: '0 8 * * 6'  # 每週六固定自動同步一次
+    - cron: '0 8 * * 6'  # 每週六自動同步
 
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Run LeetCode Sync
-        uses: joshcai/leetcode-sync@master
+        uses: carwestsam/leetcode-sync@master  # 💡 換成社群已修正最新 API 的維護版本
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           leetcode_session: ${{ secrets.LEETCODE_SESSION }}
